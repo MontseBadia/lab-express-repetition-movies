@@ -19,7 +19,12 @@
       </ul>
       <form action="/profile/favorites" method="POST"> {{!-- why /favorites??--}}
         <input type="hidden" value="{{movie.id}}" name="favMovieId">
-        <button id="btn-fav" class="fa fa-star"></button>
+        {{#if isFav}}
+          <button id="btn-fav" class="fa fa-star checked"></button>
+        {{/if}}
+        {{#unless isFav}}
+          <button id="btn-fav" class="fa fa-star"></button>
+        {{/unless}}
       </form>
     </div>
   </div>
