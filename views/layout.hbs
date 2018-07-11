@@ -6,6 +6,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
+    <header>
+      {{#unless currentUser}} {{!-- Cannot use if !currentUser --}}
+      <nav>
+        <a href="/auth/signup">signup</a>
+        <br>
+        <a href="/auth/login">login</a>
+      </nav>
+      {{/unless}}
+      {{#if currentUser}}
+      <p>Logged in as {{currentUser.username}}</p>
+      <a href="/profile">Profile</a>
+      <a href="/movies">See movies
+      </a>
+      <form action="/auth/logout" method="POST">
+        <button>logout</button>
+      </form>
+      {{!-- <a href="/auth/logout">logout</a> --}}
+      {{/if}}
+    </header>
     {{{body}}}
     <script src="javascripts/main.js"></script>
   </body>

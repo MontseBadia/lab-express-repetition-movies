@@ -27,12 +27,10 @@ router.get('/:id', (req, res, next) => {
         .then((user) => {
           const isFav = user.favorites.find(item => item.toString() === movieId);
           res.render('movie-details', {movie: movie, isFav: isFav});
-          console.log(user._id);
+          // console.log(user._id);
         });
     })
     .catch(next);
-
-  // req.session.currentUser.favorites.push(movieId);
 });
 
 module.exports = router;
