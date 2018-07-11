@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const moviesRouter = require('./routes/users');
+const moviesRouter = require('./routes/movies');
 
 const app = express();
 

@@ -133,3 +133,68 @@ body {
   color: #F6F6F6;
   font-size: 20px;
 }
+
+.bg-index {
+  background-image: url('https://user-images.githubusercontent.com/23629340/36986664-acd6af14-209a-11e8-816d-b62417239c53.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.btn-movies {
+  border-radius: 40px;
+  font-size: 2em;
+  color: rgb(0, 174, 255);
+  padding: 1.5% 2.5%;
+  position: relative;
+  left: 58%;
+  top: 48%;
+}
+
+.btn-movies a {
+  text-decoration: none;
+}
+
+.main-container {
+  margin: 40px;
+}
+
+.movies-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.each-movie-container {
+  display: flex;
+  flex-direction: column;
+  width: 33.33%;
+  text-align: center;
+  padding-top: 4%;
+}
+
+.each-movie-container img {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.details-container {
+  display: flex;
+  flex-direction: column;  
+  width: 60%;
+  margin-left: 5%;
+}
+
+.showtimes {
+  display: inline-block;
+}
+
+.ul-showtimes {
+  padding-left: 0;
+}
+
+.img-details{
+  width: 20%;
+}
