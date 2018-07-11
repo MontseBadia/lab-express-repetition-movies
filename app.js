@@ -6,12 +6,18 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
+const flash = require('connect-flash');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const moviesRouter = require('./routes/movies');
+const authRouter = require('./routes/auth');
+const profileRouter = require('./routes/profile');
 
 const app = express();
+
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 
 const dbName = 'montse-cinema';
 mongoose.connect(`mongodb://localhost/${dbName}`);
@@ -26,9 +32,32 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(session({ // Always before using the routes!!!!!!!
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60 // 1 day
+  }),
+  secret: 'some-string',
+  resave: true,
+  saveUninitialized: true,
+  cookie: {
+    maxAge: 24 * 60 * 60 * 1000
+  }
+}));
+
+app.use(flash()); // always after session middleware!!
+
+// Create our own middleware
+app.use((req, res, next) => {
+  app.locals.currentUser = req.session.currentUser; // Making currentUser available globally!!!!
+  next();
+});
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/movies', moviesRouter);
+app.use('/auth', authRouter);
+app.use('/profile', profileRouter);
 
 // -- 404 and error handler
 

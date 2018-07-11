@@ -48,8 +48,8 @@ body {
 
 /* Home Page */
 .home-container {
-  background-image: url("../images/cinema.jpg");
   background-size: 100% 100%;
+  background-image: url("../images/cinema.jpg");
   background-repeat: no-repeat;
   height: 100vh;
 }
@@ -197,4 +197,55 @@ body {
 
 .img-details{
   width: 20%;
+}
+
+/* nav, footer, h1, p, h3 {
+  text-align: center;
+} */
+
+/* button {
+  margin-left: 48%;
+} */
+
+#form {
+  margin: 30px auto;
+  width: 380px;
+}
+
+#form label {
+  color: #666;
+  display: inline-block;
+  margin-bottom: 10px;
+  text-align: center;
+  width: 100%;
+}
+
+#form input,
+#form button {
+  box-sizing: border-box;
+  font-size: 14px;
+  outline: 0;
+  padding: 4px;
+  width: 100%;
+}
+
+#form button {
+  background: #43a3e6;
+  border: 1px solid #43a3e6;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  padding: 8px 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: .3s ease background;
+  width: 100%;
+}
+
+#form button:hover {
+  background: #fff;
+  color: #43a3e6;
+  transition: .3s ease background;
 }
