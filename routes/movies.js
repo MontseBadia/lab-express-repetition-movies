@@ -24,11 +24,8 @@ router.get('/:id', (req, res, next) => {
     .catch(error => {
       console.log(error);
     });
-  button.addEventListener('click', addToFav);
-  function addToFav () {
 
-  }
-  req.session.currentUser.favorites.push(movieId);
+  // req.session.currentUser.favorites.push(movieId);
 });
 
 module.exports = router;

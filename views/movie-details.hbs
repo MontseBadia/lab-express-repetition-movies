@@ -18,8 +18,8 @@
         {{/each}}
       </ul>
       <form action="/profile/favorites" method="POST"> {{!-- why /favorites??--}}
-        <input type="hidden" value="{{movie.id}}">
-        <button class="fa fa-star"></button>
+        <input type="hidden" value="{{movie.id}}" name="favMovieId">
+        <button id="btn-fav" class="fa fa-star"></button>
       </form>
     </div>
   </div>
