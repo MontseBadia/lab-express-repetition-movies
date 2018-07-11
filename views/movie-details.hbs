@@ -17,6 +17,10 @@
         <li class='showtimes'>{{this}} |</li>
         {{/each}}
       </ul>
+      <form action="/profile/favorites" method="POST"> {{!-- why /favorites??--}}
+        <input type="hidden" value="{{movie.id}}">
+        <button class="fa fa-star"></button>
+      </form>
     </div>
   </div>
 </div>

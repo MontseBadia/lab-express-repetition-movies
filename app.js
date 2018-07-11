@@ -9,10 +9,9 @@ const mongoose = require('mongoose');
 const flash = require('connect-flash');
 
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const profileRouter = require('./routes/profile');
 const moviesRouter = require('./routes/movies');
 const authRouter = require('./routes/auth');
-const profileRouter = require('./routes/profile');
 
 const app = express();
 
@@ -54,10 +53,9 @@ app.use((req, res, next) => {
 });
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/profile', profileRouter);
 app.use('/movies', moviesRouter);
 app.use('/auth', authRouter);
-app.use('/profile', profileRouter);
 
 // -- 404 and error handler
 
