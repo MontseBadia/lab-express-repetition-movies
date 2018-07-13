@@ -12,14 +12,18 @@ router.get('/', function (req, res, next) {
   User.findById(userData._id)
     .then((user) => {
       let moviesTitles = [];
-      user.favorites.forEach(element => {
-        Movie.findById(element)
+      const promises = user.favorites.map(element => { // LEARN TO DO THIS!!
+        return Movie.findById(element)
           .then((movie) => {
             moviesTitles.push(movie.title);
-          })
-          .catch(next);
+          });
       });
-      res.render('profile', {user: user, moviesTitles: moviesTitles}); // how to put this inside forEach?
+      // .populate
+      return Promise.all(promises)
+        .then(() => {
+          // console.log(req.session.currentUser);
+          res.render('profile', {user: user, moviesTitles: moviesTitles}); // how to put this inside forEach?
+        });
     })
     .catch(next);
   // console.log(userData);
